@@ -205,9 +205,14 @@ class ModeratedObjectAdmin(admin.ModelAdmin):
         except urlresolvers.NoReverseMatch:
             object_admin_url = None
 
+        if hasattr(changed_obj, 'edit_link'):
+            object_edit_url = changed_obj.edit_link
+        else:
+            object_edit_url = object_admin_url
+
         extra_context = {'changes': changes,
                          'django_version': django.get_version()[:3],
-                         'object_admin_url': object_admin_url}
+                         'object_edit_url': object_edit_url}
         return super(ModeratedObjectAdmin, self).change_view(
             request,
             object_id,

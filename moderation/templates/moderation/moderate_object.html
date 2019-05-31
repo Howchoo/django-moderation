@@ -41,9 +41,9 @@ background:#BBFFBB none repeat scroll 0 0;
 
 {% block content %}
 {% block object-tools %}
-{% if object_admin_url %}
+{% if object_edit_url %}
 	<ul class="object-tools">
-	<li><a href="{{ object_admin_url }}" class="historylink">{% trans "Change object" %}</a></li>
+	<li><a href="{{ object_edit_url }}" class="historylink">{% trans "Change object" %}</a></li>
 	</ul>
 {% endif %}
 {% endblock %}{# object-tools #}
